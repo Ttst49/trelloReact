@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 export default function App() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-
+    const uri = window.location.pathname;
 
   function login(){
       const user = {username,password};
@@ -23,7 +23,7 @@ export default function App() {
 
   function register(){
       const user = {username,password};
-      axios.post("http://trello.thibautstachnick.com/api/register",user)
+      axios.post("https://trello.thibautstachnick.com/api/register",user)
           .then((response)=>{
               console.log(response)
           })
@@ -33,10 +33,14 @@ export default function App() {
       return !!localStorage.getItem("bearerToken");
   }
 
+  function checkWhatPageToDisplay(){
+      return uri.includes("/register");
+  }
+
   return (
       <>
           <a onClick={logout} className="btn btn-danger">Log out</a>
-          <h1>Login page</h1>
+          {checkWhatPageToDisplay() ? <p>Registration Page</p> : <p>Log In Page</p>}
           <div className="col-sm-6 offset-sm-3 ">
               <input type="text"
                      placeholder="username"
@@ -50,6 +54,7 @@ export default function App() {
 
             <br/>
               <button onClick={login} className="btn btn-outline-success">Login</button>
+              <button onClick={register} className="btn btn-outline-success">Register</button>
 
 
           </div>
