@@ -12,7 +12,12 @@ export default function App() {
 
   function login(){
       const item = {username,password};
-      axios.post("https://trello/.thibautstachnick.com/api-auth/login",item)}
+      axios.post("https://trello.thibautstachnick.com/api/token",item)
+          .then((response)=>{
+              localStorage.setItem("bearerToken",response.data["access"])
+              console.log(response.data["access"])
+          })
+  }
 
   return (
       <>
