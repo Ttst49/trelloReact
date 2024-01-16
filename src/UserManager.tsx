@@ -53,13 +53,15 @@ export default function App() {
               className="form-control"/>
 
             <br/>
-              <button onClick={login} className="btn btn-outline-success">Login</button>
-              <button onClick={register} className="btn btn-outline-success">Register</button>
+              {checkWhatPageToDisplay() ?
+                  <button onClick={register} className="btn btn-outline-success">Register</button> :
+                  <button onClick={login} className="btn btn-outline-success">Login</button>
+              }
 
 
           </div>
           {isLogged() ? <p>You are logged in</p> : <p>Log you in</p>}
-      </>
+          </>
 
-  );
-}
+          );
+          }
