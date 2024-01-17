@@ -2,10 +2,13 @@ import axiosHttp from "../auth/interceptor.ts";
 import {useEffect, useState} from "react";
 import {GlobalConstants} from "../Common/global-constants.ts";
 import {Workspace} from "../interface/Workspace.ts";
+import {useNavigate} from "react-router-dom";
 
 export function WorkspaceIndexing() {
     const [isLoading, setLoading] = useState(true);
     const [workspaces , setWorkspaces] = useState();
+    const navigate = useNavigate();
+
     useEffect(() => {
         axiosHttp.get(GlobalConstants.baseUrl+"index").then(response => {
             setWorkspaces(response.data);
@@ -17,6 +20,16 @@ export function WorkspaceIndexing() {
         return <div className="App">Loading...</div>;
     }
 
+    function removeWorkspace(workspace: Workspace) {
+        axiosHttp.delete(GlobalConstants.baseUrl+"workspace/delete/"+workspace.id)
+            .then(response => {
+                console.log(response)
+                setTimeout(()=>{
+                    navigate("/")
+                    window.location.reload()
+                },500)
+            })
+    }
 
 
     return (
@@ -29,6 +42,9 @@ export function WorkspaceIndexing() {
                     <h4><strong>Description</strong></h4>
                     <p><i>{workspace.description}</i></p>
                     <p className="card-footer">Created by {workspace.owner.username}</p>
+                    <a onClick={()=>removeWorkspace(workspace)} className="btn btn-outline-danger">Supprimer</a>
+                    <a onClick={()=>navigate("/workspace/edit/"+workspace.id)} className="btn btn-outline-warning">Editer ce workspace</a>
+                    <a onClick={()=>navigate("/board/create/"+workspace.id)} className="btn btn-outline-secondary">Ajouter un tableau</a>
                 </div>
             ))}
         </div>

@@ -4,6 +4,7 @@ import {Home} from "./Home.tsx";
 import {WorkspaceCreation} from "./workspace/WorkspaceCreation.tsx";
 import {WorkspaceIndexing} from "./workspace/WorkspaceIndexing.tsx";
 import {WorkspaceEditing} from "./workspace/WorkspaceEditing.tsx";
+import {BoardCreation} from "./board/BoardCreation.tsx";
 
 export const App = () => {
     return (
@@ -16,6 +17,8 @@ export const App = () => {
                 <Route path="/workspace/index" element={<WorkspaceIndexing />} />
                 <Route path="/workspace/create" element={<WorkspaceCreation />} />
                 <Route path="/workspace/edit/:id" element={<WorkspaceEditing />} />
+                <Route path="/workspace/delete/:id" element={<WorkspaceEditing />} />
+                <Route path="/board/create/:id" element={<BoardCreation />} />
             </Routes>
         </>
     );
