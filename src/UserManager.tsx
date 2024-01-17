@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import axios from 'axios';
 import "bootstrap/dist/css/bootstrap.min.css"
+import  "react-router-dom";
 
-export default function App() {
+export default function UserManager() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const uri = window.location.pathname;
@@ -25,7 +26,8 @@ export default function App() {
       const user = {username,password};
       axios.post("https://trello.thibautstachnick.com/api/register",user)
           .then((response)=>{
-              console.log(response)
+              console.log(true)
+              console.log(response.data["message"])
           })
   }
 
