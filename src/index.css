@@ -14,7 +14,6 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -74,5 +73,72 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+:root {
+  font-size: 20px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0;
+}
+
+p:not(:last-child) {
+  margin-bottom: 1.5em;
+}
+
+body {
+  font: 1em/1.618 Inter, sans-serif;
+  overflow: scroll;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+  padding: 30px;
+  margin: 0;
+
+  color: #224;
+  background-color: #252525
+}
+
+.card {
+  min-height: 200px;
+  display: grid;
+  flex-direction: row;
+  justify-content: space-between;  position: fixed;
+
+  margin: 10vh;
+
+  max-width: 400px;
+  height: 300px;
+  padding: 35px;
+
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(15px);
+}
+
+.card-footer {
+  font-size: 0.65em;
+  color: #446;
+}
+
+.navbar{
+  border-radius: 25px;
+  width: 95vw;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(37, 37, 37, 0.7);
 }
 

@@ -1,6 +1,6 @@
-import {GlobalConstants} from "./Common/global-constants.ts";
+import {GlobalConstants} from "../Common/global-constants.ts";
 import {useState} from "react";
-import axiosHttp from "./auth/interceptor.ts";
+import axiosHttp from "../auth/interceptor.ts";
 
 export const WorkspaceCreation = () => {
     const [name, setName] = useState('');

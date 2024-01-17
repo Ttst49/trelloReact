@@ -1,8 +1,9 @@
 import {Route, Routes} from "react-router-dom";
 import UserManager from "./UserManager.tsx";
 import {Home} from "./Home.tsx";
-import {WorkspaceCreation} from "./WorkspaceCreation.tsx";
-import {WorkspaceIndexing} from "./WorkspaceIndexing.tsx";
+import {WorkspaceCreation} from "./workspace/WorkspaceCreation.tsx";
+import {WorkspaceIndexing} from "./workspace/WorkspaceIndexing.tsx";
+import {WorkspaceEditing} from "./workspace/WorkspaceEditing.tsx";
 
 export const App = () => {
     return (
@@ -14,6 +15,7 @@ export const App = () => {
                 <Route path="/logout" element={<UserManager />} />
                 <Route path="/workspace/index" element={<WorkspaceIndexing />} />
                 <Route path="/workspace/create" element={<WorkspaceCreation />} />
+                <Route path="/workspace/edit/:id" element={<WorkspaceEditing />} />
             </Routes>
         </>
     );

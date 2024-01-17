@@ -1,4 +1,4 @@
-// @ts-ignore
+
 
 import axios from "axios";
 import {GlobalConstants} from "../Common/global-constants.ts";
