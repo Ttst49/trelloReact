@@ -25,10 +25,12 @@ export const WorkspaceCreation = () => {
             <div className="col-sm-6 offset-sm-3 ">
                 <input type="text"
                        placeholder="name"
+                       required={true}
                        onChange={(e) => setName(e.target.value)}
                        className="form-control"/>
 
                 <input type="text"
+                       required={true}
                        placeholder="description"
                        onChange={(e) => setDescription(e.target.value)}
                        className="form-control"/>
