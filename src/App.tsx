@@ -5,6 +5,7 @@ import {WorkspaceCreation} from "./workspace/WorkspaceCreation.tsx";
 import {WorkspaceIndexing} from "./workspace/WorkspaceIndexing.tsx";
 import {WorkspaceEditing} from "./workspace/WorkspaceEditing.tsx";
 import {BoardCreation} from "./board/BoardCreation.tsx";
+import {BoardDetail} from "./board/BoardDetail.tsx";
 
 export const App = () => {
     return (
@@ -19,6 +20,7 @@ export const App = () => {
                 <Route path="/workspace/edit/:id" element={<WorkspaceEditing />} />
                 <Route path="/workspace/delete/:id" element={<WorkspaceEditing />} />
                 <Route path="/board/create/:id" element={<BoardCreation />} />
+                <Route path="/board/show/:id" element={<BoardDetail />}></Route>
             </Routes>
         </>
     );
