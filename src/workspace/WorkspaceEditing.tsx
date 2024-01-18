@@ -1,7 +1,7 @@
 import {GlobalConstants} from "../Common/global-constants.ts";
 import {useState} from "react";
 import axiosHttp from "../auth/interceptor.ts";
-import {useLocation, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 
 export const WorkspaceEditing = () => {
     const [name, setName] = useState('');

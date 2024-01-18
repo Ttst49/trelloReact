@@ -16,10 +16,6 @@ export function WorkspaceIndexing() {
         });
     }, []);
 
-    if (isLoading) {
-        return <div className="App">Loading...</div>;
-    }
-
     function removeWorkspace(workspace: Workspace) {
         axiosHttp.delete(GlobalConstants.baseUrl+"workspace/delete/"+workspace.id)
             .then(response => {
@@ -30,6 +26,12 @@ export function WorkspaceIndexing() {
                 },500)
             })
     }
+
+
+    if (isLoading) {
+        return <div className="App">Loading...</div>;
+    }
+
 
 
     return (
