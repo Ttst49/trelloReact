@@ -3,7 +3,6 @@ import axiosHttp from "../auth/interceptor.ts";
 import {GlobalConstants} from "../Common/global-constants.ts";
 import {useNavigate, useParams} from "react-router-dom";
 import {Board} from "../interface/Board.ts";
-import {Workspace} from "../interface/Workspace.ts";
 
 export function BoardIndexing() {
     const [isLoading, setLoading] = useState(true);
@@ -29,7 +28,6 @@ export function BoardIndexing() {
                 },500)
             })
     }
-
 
     if (isLoading) {
         return <div className="App">Loading...</div>;
