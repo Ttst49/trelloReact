@@ -1,13 +1,14 @@
 import {useEffect, useState} from "react";
 import axiosHttp from "../auth/interceptor.ts";
 import {GlobalConstants} from "../Common/global-constants.ts";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {Board} from "../interface/Board.ts";
+import {Workspace} from "../interface/Workspace.ts";
 
 export function BoardIndexing() {
     const [isLoading, setLoading] = useState(true);
     const [boards , setBoards] = useState();
-
+    const navigate = useNavigate();
     const {id}= useParams();
 
     useEffect(() => {
@@ -17,6 +18,18 @@ export function BoardIndexing() {
                 setLoading(false)
             })
     },[]);
+
+    function removeBoard(board: Board) {
+        axiosHttp.delete(GlobalConstants.baseUrl+"board/delete/"+board.id)
+            .then(response => {
+                console.log(response)
+                setTimeout(()=>{
+                    navigate("/board/showAll/"+id)
+                    window.location.reload()
+                },500)
+            })
+    }
+
 
     if (isLoading) {
         return <div className="App">Loading...</div>;
@@ -32,6 +45,8 @@ export function BoardIndexing() {
                         <p>{board.name}</p>
                         <h4><strong>Description</strong></h4>
                         <p><i>{board.description}</i></p>
+                        <a onClick={() => navigate("/board/show/" + board.id)} className="btn btn-outline-dark">Voir</a>
+                        <a onClick={()=>removeBoard(board)} className="btn btn-outline-danger">Supprimer</a>
                     </div>
                 ))}
             </div>
