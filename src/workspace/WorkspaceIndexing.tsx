@@ -47,6 +47,7 @@ export function WorkspaceIndexing() {
                     <a onClick={()=>removeWorkspace(workspace)} className="btn btn-outline-danger">Supprimer</a>
                     <a onClick={()=>navigate("/workspace/edit/"+workspace.id)} className="btn btn-outline-warning">Editer ce workspace</a>
                     <a onClick={()=>navigate("/board/create/"+workspace.id)} className="btn btn-outline-secondary">Ajouter un tableau</a>
+                    <a onClick={()=>navigate("/board/showAll/"+workspace.id)} className="btn btn-outline-dark">Voir les tableaux de ce workspace</a>
                 </div>
             ))}
         </div>
