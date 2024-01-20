@@ -23,6 +23,7 @@ export const App = () => {
                 <Route path="/board/create/:id" element={<BoardCreation />} />
                 <Route path="/board/showAll/:id" element={<BoardIndexing />}></Route>
                 <Route path="/board/show/:id" element={<BoardDetail />}></Route>
+                <Route path="/board/delete/:id" element={<BoardDetail />}></Route>
             </Routes>
         </>
     );
