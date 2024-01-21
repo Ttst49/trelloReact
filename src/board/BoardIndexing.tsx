@@ -35,8 +35,9 @@ export function BoardIndexing() {
     
     return (
         <>
+            <a onClick={() => navigate("/workspace/index")} className="btn btn-outline-dark">Retour</a>
             <div className="boards">
-                {boards.map((board: Board)=> (
+                {boards.map((board: Board) => (
                     <div key={board.id} className="card">
                         <h5>Id={board.id}</h5>
                         <h4><strong>Titre</strong></h4>
@@ -44,7 +45,7 @@ export function BoardIndexing() {
                         <h4><strong>Description</strong></h4>
                         <p><i>{board.description}</i></p>
                         <a onClick={() => navigate("/board/show/" + board.id)} className="btn btn-outline-dark">Voir</a>
-                        <a onClick={()=>removeBoard(board)} className="btn btn-outline-danger">Supprimer</a>
+                        <a onClick={() => removeBoard(board)} className="btn btn-outline-danger">Supprimer</a>
                     </div>
                 ))}
             </div>
