@@ -2,6 +2,9 @@ import axiosHttp from "../auth/interceptor.ts";
 import {GlobalConstants} from "../Common/global-constants.ts";
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
+import "./BoardDetail.css"
+import {list} from "postcss";
+import {List} from "../interface/List.ts";
 
 
 export function BoardDetail() {
@@ -25,14 +28,19 @@ export function BoardDetail() {
 
     return (
         <>
-            <div className="board">
-                <div key={board.id} className="card">
-                    <h5>Id={board.id}</h5>
-                    <h4><strong>Titre</strong></h4>
-                    <p>{board.name}</p>
-                    <h4><strong>Description</strong></h4>
-                    <p><i>{board.description}</i></p>
-                </div>
+            <div className="topBar">
+                <span>{board.name}</span>
+                <span>{board.id}</span>
+            </div>
+            <div className="mainContent">
+                {board.lists.map((list) => (
+                    <div key={list.id}>
+                        <div className="listCard">
+                            <span>{list.name}</span>
+                        </div>
+                    </div>
+                ))}
+                <button className="topButton btn btn-primary">Créer une liste</button>
             </div>
         </>
     );
