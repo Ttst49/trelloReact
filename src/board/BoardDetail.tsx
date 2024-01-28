@@ -2,7 +2,7 @@ import axiosHttp from "../auth/interceptor.ts";
 import {GlobalConstants} from "../Common/global-constants.ts";
 import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import "./BoardDetail.css"
+import "../assets/BoardDetail.css"
 import {List} from "../interface/List.ts";
 
 
