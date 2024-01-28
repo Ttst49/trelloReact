@@ -1,10 +1,8 @@
 .mainContent{
     display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items: center;
     overflow: scroll;
-
 }
 
 .topBar{
@@ -18,10 +16,25 @@
 }
 
 .listCard{
-    padding: 10vh;
+    height: 20vw;
+    width: 20vw;
     margin: 5vh;
     display: flex;
     flex-direction: column;
     background-color: gray;
     border-radius: 15px;
+}
+
+.topCard{
+    display: flex;
+    position: relative;
+    top: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.topButton{
+    margin-right: 10vh;
+    margin-left: 5vh;
 }
