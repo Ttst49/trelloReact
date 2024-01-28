@@ -4,6 +4,7 @@ import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import "../assets/BoardDetail.css"
 import {List} from "../interface/List.ts";
+import {Card} from "../interface/Card.ts";
 
 
 export function BoardDetail() {
@@ -42,11 +43,22 @@ export function BoardDetail() {
                             <div className="topCard">
                                 <span>{list.name}</span>
                             </div>
-
+                            {list.cards.map((card:Card)=> (
+                                <div className="contentCard">
+                                    <ul>
+                                        <li>
+                                            <span>{card.name}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 ))}
-                <button onClick={()=>{navigate("/list/create/"+board.id)}} className="topButton btn btn-primary">Créer une liste</button>
+                <button onClick={() => {
+                    navigate("/list/create/" + board.id)
+                }} className="topButton btn btn-primary">Créer une liste
+                </button>
             </div>
         </>
     );
