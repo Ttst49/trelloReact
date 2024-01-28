@@ -7,6 +7,7 @@ import {WorkspaceEditing} from "./workspace/WorkspaceEditing.tsx";
 import {BoardCreation} from "./board/BoardCreation.tsx";
 import {BoardDetail} from "./board/BoardDetail.tsx";
 import {BoardIndexing} from "./board/BoardIndexing.tsx";
+import {ListCreation} from "./list/ListCreation.tsx";
 
 export const App = () => {
     return (
@@ -24,6 +25,7 @@ export const App = () => {
                 <Route path="/board/showAll/:id" element={<BoardIndexing />}></Route>
                 <Route path="/board/show/:id" element={<BoardDetail />}></Route>
                 <Route path="/board/delete/:id" element={<BoardDetail />}></Route>
+                <Route path="/list/create/:id" element={<ListCreation />}></Route>
             </Routes>
         </>
     );
