@@ -39,7 +39,10 @@ export function BoardDetail() {
                 {board.lists.map((list:List) => (
                     <div key={list.id}>
                         <div className="listCard">
-                            <span>{list.name}</span>
+                            <div className="topCard">
+                                <span>{list.name}</span>
+                            </div>
+
                         </div>
                     </div>
                 ))}
