@@ -10,6 +10,7 @@ import {Card} from "../interface/Card.ts";
 export function BoardDetail() {
     const [isLoading, setLoading] = useState(true);
     const [board , setBoard] = useState();
+    const [cardName, setCardName] = useState("");
     const navigate = useNavigate();
 
 
@@ -22,6 +23,16 @@ export function BoardDetail() {
             })
 
     },[]);
+
+    async function createCard(listId:string){
+        await axiosHttp.post(GlobalConstants.baseUrl+'card/create/'+listId, {"name":cardName})
+            .then((response) => {
+                console.log(response.data);
+                setTimeout(()=>{
+                    navigate("/board/show/"+id)
+                },1000)
+            })
+    }
 
     const {id} = useParams();
 
@@ -43,11 +54,22 @@ export function BoardDetail() {
                             <div className="topCard">
                                 <span>{list.name}</span>
                             </div>
+                            <div className="newCard">
+                                <input
+                                    className="cardCreation"
+                                    type="text"
+                                    placeholder="Add card"
+                                    onChange={(e) => setCardName(e.target.value)}
+                                />
+                                <button className={"creationButton"} onClick={()=>{createCard(list.id.toString()).then()}}>
+                                    Add
+                                </button>
+                            </div>
                             {list.cards.map((card:Card)=> (
                                 <div className="contentCard">
                                     <ul>
                                         <li>
-                                            <span>{card.name}</span>
+                                            <a className={"cardLink"}>{card.name}</a>
                                         </li>
                                     </ul>
                                 </div>
